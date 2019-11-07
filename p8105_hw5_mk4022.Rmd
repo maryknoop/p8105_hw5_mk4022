@@ -51,10 +51,13 @@ data
 
 table = data %>% 
   mutate(
-    ID=c(1:10,1:10),
+    id=c(1:10,1:10),
     arm=c(rep("control",10),rep("experiment",10))
 )
 table
+
+
+
 
 
 ```
