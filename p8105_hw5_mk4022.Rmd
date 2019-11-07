@@ -10,17 +10,12 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(knitr)
 library(dplyr)
+library(purrr)
 ```
 
 **Problem 1**  
-*Part A:*
-For numeric variables, you should fill in missing values with the mean of non-missing values
-For character variables, you should fill in missing values with "virginica"
-
-*Part B:*
+*Part A:*  
 Write a function that takes a vector as an argument; replaces missing values using the rules defined above; and returns the resulting vector. Apply this function to the columns of iris_with_missing using a map statement.
-
-
 
 ```{r}
 set.seed(10)
@@ -29,4 +24,15 @@ iris_with_missing = iris %>%
   map_df(~replace(.x, sample(1:150, 20), NA)) %>%
   mutate(Species = as.character(Species))
 iris_with_missing
+
+missing = function(x){
+  if (is.numeric(x)){
+    x = replace_na(x, round(mean(x, na.rm = TRUE)))
+  }else if(is.character(x)) {
+    x = replace_na(x, "virginica")
+  }
+}
+filled_iris = map_df(iris_with_missing,missing)
+filled_iris
+
 ```
