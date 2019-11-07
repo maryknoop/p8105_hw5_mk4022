@@ -56,16 +56,26 @@ table = data %>%
 )
 table
 
-
-
-
-
+pivot_table = table %>% 
+  pivot_longer(
+    week_1:week_8,
+    names_to = "week_num",
+    values_to = "value"
+) 
+pivot_table
 ```
-
 ```
-
 *Part B*  
 Make a spaghetti plot showing observations on each subject over time, and comment on differences between groups. 
+```{r}
+pivot = table %>% 
+  pivot_longer(
+    week_1:week_8,
+    names_to = "week_num",
+    values_to = "value"
+) 
+pivot
+```
 
 
 
