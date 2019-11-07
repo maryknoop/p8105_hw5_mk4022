@@ -42,10 +42,23 @@ filled_iris
 Create a tidy dataframe containing data from all participants, including the subject ID, arm, and observations over time. 
 ```{r}
 all_datafiles = list.files(path="data",full.names = T) 
+all_datafiles
 
 data = all_datafiles %>% 
   map(read_csv) %>% 
   reduce(rbind)
+data
+
+table = data %>% 
+  mutate(
+    ID=c(1:10,1:10),
+    arm=c(rep("control",10),rep("experiment",10))
+)
+table
+
+
+```
+
 ```
 
 *Part B*  
