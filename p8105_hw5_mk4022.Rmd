@@ -74,7 +74,7 @@ plot = pivot_table %>%
   ggplot(aes(x=week_num,y=value,group=id))+
   geom_line(aes(color=id))+
   labs(
-    x="id",
+    x="week_num",
     y="value"
 )
 plot
