@@ -137,6 +137,7 @@ plot1
  
  *Part C*  
 Make a plot showing the average estimate of β̂1 on the y axis and the true value of β1 on the x axis. Make a second plot (or overlay on the first) the average estimate of β̂1 only in samples for which the null was rejected on the y axis and the true value of β1 on the x axis. Is the sample average of β̂1 across tests for which the null is rejected approximately equal to the true value of β1? Why or why not?  
+
 ```{r}
 plot2 = sim_repeat %>% 
   group_by(beta1_2) %>% 
@@ -161,8 +162,8 @@ plot3 = sim_repeat %>%
   geom_line() +
   labs(
   title = "True value of Beta1 vs average estimate of Beta1 in rejected H0 samples",
-  x = "True value of Beta2",
-  y = "Power of the test"
+  x = "True value of Beta1",
+  y = "Average estimate of Beta1"
   )
 plot3
 ```
